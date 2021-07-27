@@ -1,7 +1,7 @@
 
 # Blog
 
-This is blog app with features like Login,Signup blog post and much more. Python, Django, HTML, CSS, Bootstrap is used in this project.
+This is blog app with features like Login,Signup blog post, Form Validation using Modelform and much more. Python, Django, HTML, CSS, Bootstrap is used in this project.
 
  
 
