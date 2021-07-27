@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock title %}
+{% block css %}
+{% endblock css %}
+
+
+{% block body %}
+<div class="container ">
+  <div class="row">
+    <div class="col-12">
+    <main class="form-signin my-2">
+      <form method="POST" action="" novalidate>
+      {% csrf_token %}
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        {% if messages %}
+              {% for message in messages %}
+                  <p {% if message.tags%} class="alert alert-{{message.tags}}" {% endif %}>{{message}}</p>
+              {% endfor %}
+        {% endif %}
+            {% for fm in form %}
+              <div class="form-group">
+              {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+              </div>
+            {% endfor %}
+           
+           <input type="submit" value="submit" class="btn btn-primary">
+      </form>
+      {% if form.non_field_errors %}
+          {% for error in form.non_field_errors  %}
+          <p class=" alert alert-danger">{{error}}</p>
+          {% endfor %}
+      {% endif %}
+    </main>
+    </div>
+  </div>
+</div>
+           
+
+{% endblock body %}

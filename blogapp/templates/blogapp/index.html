@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} {% endblock title %}
+{% block body %}
+<div class="container">
+    {% for item in data %}
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="mb-0">{{item.title}}</h3>
+          <div class="mb-1 text-muted">{{item.publish_date}}</div>
+          <p class="card-text mb-auto">{{item.desc}}</p>
+          <!--<a href="#" class="stretched-link">Continue reading</a>-->
+        </div>
+        <div class="col-auto d-none d-lg-block">
+        <img src="/media/{{item.thumbnail}}" width="200" height="250"/>
+          
+
+        </div>
+      </div>
+      {% endfor %}
+</div>
+{% endblock body %}

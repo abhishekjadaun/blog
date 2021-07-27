@@ -1,0 +1,30 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <title>{% block title%} {% endblock title%}</title>
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet"/>
+    {% block css %}
+    <style>
+    </style>
+    {% endblock css %}
+
+  </head>
+  <body >
+  {% include 'navbar.html' %}
+    {% block body %}{% endblock body %}
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+  
+    <script src="{% static 'js/jquery-3.6.0.js'%}"></script>
+    <script src="{% static 'js/bootstrap.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    {% block js %}{% endblock js %}
+   
+  </body>
+</html>

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock title %}
+{% block css %}
+{% endblock css %}
+
+
+{% block body %}
+<div class="container ">
+  <div class="row">
+    <div class="col-12">
+    <main class="form-signin my-2">
+      <form method="POST" action="" novalidate>
+      {% csrf_token %}
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+        <div class="form-floating my-2">
+          
+           {% for fm in form %}
+           <div class="form-group">
+           
+          
+                {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+            {% endfor %}
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                  <p class="alert alert-danger">{{error}}</p>
+                {% endfor %}
+            {% endif %}
+
+             </div>
+        </div>  
+        
+        <!--<div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>-->
+        <button class="w-100 btn btn-lg btn-primary" type="submit">
+          Sign in
+        </button>
+        <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
+      </form>
+    </main>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}
